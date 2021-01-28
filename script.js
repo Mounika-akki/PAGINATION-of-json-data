@@ -508,7 +508,7 @@ document.body.append(total);
 
 let heading = document.createElement("div");
 heading.setAttribute("class", "header");
-heading.innerHTML = "Pagignation With Json Data"
+heading.innerHTML = "Pagination With Json Data"
 
 let display = document.createElement("div");
 display.setAttribute("class", "display");
@@ -539,11 +539,11 @@ rowHead.append(idhead,nameHead,emailHead);
 let tableBody = document.createElement("tbody");
 table.append(tableBody);
 
-let pagignationBlock = document.createElement("div");
-pagignationBlock.setAttribute("class", "pagignationBlock");
-total.append(heading, display, pagignationBlock);
+let paginationBlock = document.createElement("div");
+paginationBlock.setAttribute("class", "paginationBlock");
+total.append(heading, display, paginationBlock);
 
-//creating pagignation buttons
+//creating pagination buttons
 let rows = 10;
 let currentButtonValue=0;
 
@@ -556,11 +556,11 @@ previous.addEventListener( "click" , event => {
     else{currentButtonValue -=1;}
     displaydata(rows,currentButtonValue);
 });
-pagignationBlock.append(previous);
+paginationBlock.append(previous);
 
 
 let buttonCount = Math.ceil(jsonData.length / rows);
-function pagignation(){
+function pagination(){
     for (let i = 0; i < buttonCount; i++) {
         let button = document.createElement("button");
         button.classList.add("btn", "btn-primary","number");
@@ -569,10 +569,10 @@ function pagignation(){
             currentButtonValue = i;
             displaydata(rows,currentButtonValue);
         });
-        pagignationBlock.append(button);
+        paginationBlock.append(button);
     }
 }
-pagignation();
+pagination();
 
 //creating next button
 let next = document.createElement("button");
@@ -583,7 +583,7 @@ next.addEventListener( "click" , event => {
     else{currentButtonValue +=1;}
     displaydata(rows,currentButtonValue);
 });
-pagignationBlock.append(next);
+paginationBlock.append(next);
 
 //create columns and display json data
 function displaydata(rows,activePage=0){
